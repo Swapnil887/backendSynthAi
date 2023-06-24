@@ -31,7 +31,7 @@ app.get('/auth/google',
 
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' ,session:false}),(req, res)=> {
     // Successful authentication, redirect home.
-    res.redirect('https://course.masaischool.com/dashboard');
+    res.redirect('https://syntai.vercel.app/home');
   });
 
 
