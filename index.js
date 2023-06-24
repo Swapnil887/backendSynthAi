@@ -15,7 +15,7 @@ var GoogleStrategy = require('passport-google-oauth20').Strategy;
 passport.use(new GoogleStrategy({
     clientID: "543549038023-t5qmfotps2mra00lnr05l2pbo5jr57gb.apps.googleusercontent.com",
     clientSecret: "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",
-    callbackURL: "http://localhost:8080/auth/google/callback"
+    callbackURL: "https://real-rose-peacock-tutu.cyclic.app/auth/google/callback"
                   
   },
   async function(accessToken, refreshToken, profile, cb) {
