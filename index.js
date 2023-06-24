@@ -13,8 +13,8 @@ var token = ""
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 passport.use(new GoogleStrategy({
-    clientID: "543549038023-t5qmfotps2mra00lnr05l2pbo5jr57gb.apps.googleusercontent.com",
-    clientSecret: "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",
+    clientID: "556306505797-d4f2602gptfeb2qfo9m4ml6na2726s80.apps.googleusercontent.com",
+    clientSecret: "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",
     callbackURL: "https://real-rose-peacock-tutu.cyclic.app/auth/google/callback"
                   
   },
