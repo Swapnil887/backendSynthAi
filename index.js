@@ -47,8 +47,8 @@ app.get("/home",(req,res)=>{
 
 
 
-app.get("/login",(req,res)=>{
-    res.send("login")
+app.get("/",(req,res)=>{
+    res.send("welcome")
 })
 
 app.get("/token",(req,res)=>{
