@@ -31,7 +31,7 @@ app.get('/auth/google',
 
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' ,session:false}),(req, res)=> {
     // Successful authentication, redirect home.
-    res.redirect('http://127.0.0.1:5500/frontend/index.html');
+    res.redirect('https://course.masaischool.com/dashboard');
   });
 
 
