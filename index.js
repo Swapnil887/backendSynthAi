@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser')
 var cors = require("cors")
 const { connection } = require("./config/db")
 const { userRoute } = require("./routes/user")
+const { authenticate } = require("./middleware/authorization")
+const { saveRouter } = require("./routes/save")
 
 app.use(cors())
 app.use(express.json())
@@ -15,7 +17,8 @@ var GoogleStrategy = require('passport-google-oauth20').Strategy;
 passport.use(new GoogleStrategy({
     clientID: "543549038023-t5qmfotps2mra00lnr05l2pbo5jr57gb.apps.googleusercontent.com",
     clientSecret: "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",
-    callbackURL: "http://localhost:8080/auth/google/callback"
+                  
+    callbackURL: "https://real-rose-peacock-tutu.cyclic.app/auth/google/callback"
                   
   },
   async function(accessToken, refreshToken, profile, cb) {
@@ -31,7 +34,7 @@ app.get('/auth/google',
 
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' ,session:false}),(req, res)=> {
     // Successful authentication, redirect home.
-    res.redirect('http://127.0.0.1:5500/frontend/index.html');
+    res.redirect('https://syntai.vercel.app/home');
   });
 
 
@@ -55,6 +58,8 @@ app.get("/token",(req,res)=>{
     res.json({token})
 })
 
+app.use(authenticate)
+app.use("/save",saveRouter)
 
 app.listen(8080,async ()=>{
   try {
@@ -64,3 +69,9 @@ app.listen(8080,async ()=>{
   }
     console.log("server is running")
 })
+
+
+
+
+
+// fetch("https://real-rose-peacock-tutu.cyclic.app/user/login")

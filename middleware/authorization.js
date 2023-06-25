@@ -7,10 +7,8 @@ const authenticate = async (req,res,next)=>{
     try{
         if(token){
             
-        var x = jwt.verify(token,"key")
-        var body =await UserModel.find({email:x})
-        req.body.name = body[0].name;
-        req.body.email = x
+        var decoded = jwt.verify(token,"key")
+        req.body.email = decoded.email;
         next()
         }
         else{

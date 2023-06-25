@@ -61,7 +61,7 @@ userRoute.post("/login",async(req,res)=>{
                     res.send("err")
                 }else{
                     if(result){
-                        const token = jwt.sign(email,"key")
+                        const token = jwt.sign({email},"key")
                         console.log(token)
                         
                         res.json({token})
