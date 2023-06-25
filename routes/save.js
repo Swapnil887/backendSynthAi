@@ -7,9 +7,9 @@ saveRouter.post("/add",async(req,res)=>{
     let payload=req.body;
     try{
         await SaveModel.insertMany(payload)
-        res.send("Your Data Save!")
+        res.json("Your Data Save!")
     }catch(err){
-        res.send(err)
+        res.json(err)
     }
 })
 
@@ -21,10 +21,10 @@ saveRouter.get("/get/:page",async(req,res)=>{
 
     try{
         let save=await SaveModel.find({email}).skip(newPage).limit(2)
-        res.send(save)
+        res.json(save)
 
     }catch(err){
-        res.send(err)
+        res.json(err)
     }
 
 
