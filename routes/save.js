@@ -15,12 +15,12 @@ saveRouter.post("/add",async(req,res)=>{
 
 saveRouter.get("/get/:page",async(req,res)=>{
     const {page}=req.params;
-    const email=req.body.email
+    
 
     const newPage=(page-1)*2
 
     try{
-        let save=await SaveModel.find({email}).skip(newPage).limit(2)
+        let save=await SaveModel.find().skip(newPage).limit(2)
         res.json(save)
 
     }catch(err){
