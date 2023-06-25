@@ -6,8 +6,8 @@ const saveRouter=express.Router()
 saveRouter.post("/add",async(req,res)=>{
     let payload=req.body;
     try{
-        await SaveModel.insertMany(payload)
-        res.json("Your Data Save!")
+        let data = await SaveModel.insertMany(payload)
+        res.json(data)
     }catch(err){
         res.json(err)
     }
